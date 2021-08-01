@@ -19,11 +19,10 @@ body{
 
 .content{
     width: 60vw;
-    height: 70vh;
-    padding: 30px;
-    padding-bottom: 0;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
+    height: 80vh;
+    padding: 40px 60px;
+    border-radius: 60px;
+    backdrop-filter: blur(4px);
     background-color: rgba(255, 255, 255, .6);
     display: flex;
     flex-direction: column;
@@ -32,26 +31,28 @@ body{
 /* HEADER */
 
 .header{
-    padding: 0 30px 10px 0;
+    padding-bottom: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .header__h1{
-    font-size: 3rem;
+    font-size: 5rem;
     line-height: 1;
     color: #fff;
     text-transform: uppercase;
+    margin: 0;
 }
 
 .header__btn{
-    padding: 10px 25px;
+    padding: 15px 40px;
     background: #fff;
     border: none;
     border-radius: 1000px;
     color: rgb(75, 74, 74);
-    font-size: 1.4rem;
+    font-size: 2rem;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -70,14 +71,14 @@ body{
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    padding: 15px 10px;
-    margin: 0 10px 10px 0;
-    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 0 15px 10px 0;
+    border-radius: 20px;
 }
 
 .todo__name{
     flex-grow: 1;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 0 15px;
     color: rgb(75, 74, 74);
 }
@@ -89,17 +90,18 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
+   padding-top: 40px;
     border-top: 1px solid #fff;
+    margin-top: 20px;
 }
 
 .bottom-bar__input{
     flex-grow: 1;
     margin: 0 15px 0 0;
-    padding: 0px 40px;
-    height: 40px;
-    font-size: 1.8rem;
-    border-radius: 15px;
+    padding: 0px 50px;
+    height: 60px;
+    font-size: 2.2rem;
+    border-radius: 10000px;
     border: 2px solid;
     border-color: transparent;
     transition: border-color .1s;
@@ -114,8 +116,8 @@ body{
 .bottom-bar__btn{
     border-radius: 50%;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     position: relative;
     background: #fff;
     cursor: pointer;
@@ -127,8 +129,8 @@ body{
 }
 
 .add-line{
-    width: 20px;
-    height: 3px;
+    width: 32px;
+    height: 4px;
     background: rgb(75, 74, 74);
     display: block;
     position: absolute;
@@ -163,4 +165,151 @@ body{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+
+  /* MEDIA QUERIES */
+
+  @media(max-width: 1400px){
+    .content{
+        padding: 30px 50px;
+    }
+
+    .header{
+       padding-bottom: 35px;
+    }
+
+    .header__h1{
+        font-size: 5rem;
+    }
+
+    .header__btn{
+        padding: 12px 30px;
+        font-size: 1.8rem;
+    }
+
+    .todo{
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+
+    .todo__name{
+        font-size: 1.6rem;
+    }
+
+    .bottom-bar{
+        padding-top: 30px;
+    }
+
+    .bottom-bar__input{
+        height: 40px;
+        padding: 0 30px;
+        font-size: 1.6rem;
+    }
+
+    .bottom-bar__btn{
+        height: 40px;
+        width: 40px;
+    }
+
+    .add-line{
+        width: 22px;
+        height: 3px;
+    }
+
+  }
+
+  @media(max-width: 1200px){
+    .content{
+        padding: 25px 45px;
+        border-radius: 40px;
+    }
+
+    .header{
+        padding-bottom: 30px;
+    }
+
+    .header__h1{
+        font-size: 4rem;
+    }
+
+    .header__btn{
+        padding: 10px 27px;
+        font-size: 1.6rem;
+    }
+
+    .todo{
+        padding: 8px 13px;
+        border-radius: 10px;
+    }
+
+    .todo__name{
+        font-size: 1.4rem;
+    }
+
+    .bottom-bar{
+        padding-top: 25px;
+    }
+
+    .bottom-bar__input{
+        height: 35px;
+        padding: 0 25px;
+        font-size: 1.6rem;
+    }
+
+    .bottom-bar__btn{
+        height: 35px;
+        width: 35px;
+    }
+
+    .add-line{
+        width: 20px;
+        height: 3px;
+    }
+
+  }
+
+  @media(max-width: 768px){
+
+    .header{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .header__h1{
+        margin-bottom: 10px;
+    }
+
+    .bottom-bar{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .bottom-bar__input{
+        height: 35px;
+        padding: 0 25px;
+        font-size: 1.4rem;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .bottom-bar__btn{
+        height: 35px;
+        width: 100px;
+        border-radius: 1000px;
+    }
+
+    .add-line{
+        width: 20px;
+    }
+  }
+
+  @media(max-width: 576px){
+      .content{
+          width: 90vw;
+          height: 90vh;
+      }
   }
