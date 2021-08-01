@@ -1,18 +1,23 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 const Todo = ({ todo,  toggleTodo }) => {
 
     const checkRef = useRef()
     const [nameStyle, setNameStyle] = useState({textDecoration: "none"})
 
-    const handleCheck = () => {
-        if(checkRef.current.checked) {
-            setNameStyle({textDecoration: "line-through"})
-        }
-        else {
-            setNameStyle({textDecoration: "none"})
-        }
+    useEffect(() => {
+        setStyles()
+    }, [])
 
+    const setStyles = () => {
+        if(checkRef.current.checked) 
+            setNameStyle({textDecoration: "line-through"})
+        else 
+            setNameStyle({textDecoration: "none"})
+    }
+
+    const handleCheck = () => {
+        setStyles()
         toggleTodo(todo.id)
     }
 

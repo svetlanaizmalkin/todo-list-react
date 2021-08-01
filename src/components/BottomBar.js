@@ -1,20 +1,21 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 
-const BottomBar = ({todos, setTodos }) => {
+const BottomBar = ({ setTodos, getId, setNewId }) => {
 
     const inputRef = useRef()
-
-    const handleAddTodo = (e) => {
+    
+    const handleAddTodo = () => {
         const name = inputRef.current.value.trim();
         if(name === "") return
-        setTodos(prev => [...prev, {id: name, name: name, complete: false}])
+        setNewId()
+        setTodos(prev => [...prev, {id: getId(), name: name, complete: false}])
         inputRef.current.value = null
     }
 
     return (
         <div className="bottom-bar">
             <input className="bottom-bar__input" type="text" placeholder="Type your todo here" ref={inputRef}/>
-            <button className="bottom-bar__btn" onClick={handleAddTodo}>
+            <button className="bottom-bar__btn" onClick={() => {handleAddTodo()}}>
                 <span className="add-line"></span>
                 <span className="add-line"></span>
             </button>

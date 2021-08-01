@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import "./assets/css/App.css"
 import BottomBar from "./components/BottomBar"
@@ -8,7 +8,21 @@ import TodoList from "./components/TodoList"
 
 function App() {
 
-  const [todos, setTodos] = useState([{id: 1, name: "todo1", complete: false}])
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
+
+  useEffect(() => {
+      localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+
+  const setNewId = () => {
+    let id = getId()
+    id = id+1
+    localStorage.setItem("id", JSON.stringify(id))
+  }
+
+  const getId = () => {
+    return JSON.parse(localStorage.getItem("id")) || 0
+  }
 
   const toggleTodo = (id) => {
     const newTodos = [...todos]
@@ -25,8 +39,8 @@ function App() {
   return (
     <div className="content">
       <Header setTodos={setTodos} deleteCheckedTodos={deleteCheckedTodos}/>
-      <TodoList todos={todos} setTodos={setTodos} toggleTodo={toggleTodo}/>
-      <BottomBar todos={todos} setTodos={setTodos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
+      <BottomBar setTodos={setTodos} getId={getId} setNewId={setNewId}/>
     </div>
   );
 }
