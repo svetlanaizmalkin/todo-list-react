@@ -10,15 +10,11 @@ const TodoList = ({ todos, toggleTodo }) => {
             }) 
             return newArr
         }
-
-        
     }
 
     return (
         <div className="todo-list">
-            {
-                showTodos()
-            }
+            {showTodos()}
         </div>
     )
 }

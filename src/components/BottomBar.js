@@ -14,7 +14,15 @@ const BottomBar = ({ setTodos, getId, setNewId }) => {
 
     return (
         <div className="bottom-bar">
-            <input className="bottom-bar__input" type="text" placeholder="Type your todo here" ref={inputRef}/>
+            <input  className="bottom-bar__input" 
+                    type="text" 
+                    placeholder="Type your todo here" 
+                    ref={inputRef} 
+                    onKeyUp={(e) => {
+                        if(e.key === 'Enter'){
+                            handleAddTodo()
+                        }
+                    }}/>
             <button className="bottom-bar__btn" onClick={() => {handleAddTodo()}}>
                 <span className="add-line"></span>
                 <span className="add-line"></span>

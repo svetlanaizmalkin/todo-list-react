@@ -48,12 +48,24 @@ body{
 .header__btn{
     padding: 15px 40px;
     background: #fff;
-    border: none;
+    border: 1px solid;
+    border-color: transparent;
     border-radius: 1000px;
     color: rgb(75, 74, 74);
     font-size: 2rem;
     font-weight: 500;
     cursor: pointer;
+    transition: .1s linear;
+}
+
+.header__btn:hover{
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.header__btn:active{
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
 }
 
 /* TODO LIST */
@@ -90,9 +102,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-   padding-top: 40px;
+    padding-top: 40px;
     border-top: 1px solid #fff;
-    margin-top: 20px;
 }
 
 .bottom-bar__input{
@@ -102,15 +113,14 @@ body{
     height: 60px;
     font-size: 2.2rem;
     border-radius: 10000px;
-    border: 2px solid;
-    border-color: transparent;
+    border: none;
     transition: border-color .1s;
     color: rgb(75, 74, 74);
 }
 
 .bottom-bar__input:focus{
     outline: none;
-    border-color: rgb(75, 74, 74);
+    background-color: rgba(255, 255, 255, .8);
 }
 
 .bottom-bar__btn{
@@ -121,11 +131,24 @@ body{
     position: relative;
     background: #fff;
     cursor: pointer;
+    border: 1px solid;
+    border-color: transparent;
+    transition: .1s linear;
 }
 
 .bottom-bar__btn:hover,
 .bottom-bar__btn:focus{
     outline: none;
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.bottom-bar__btn:active .add-line{
+    background-color: #fff;
+}
+
+.bottom-bar__btn:active{
+    border-color: white;
+    background-color: transparent;
 }
 
 .add-line{
@@ -137,6 +160,7 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: .1s linear;
 }
 
 .add-line:first-child{
@@ -281,15 +305,20 @@ body{
         margin-bottom: 10px;
     }
 
+    .header__btn{
+        font-size: 1.4rem;
+    }
+
     .bottom-bar{
         display: flex;
         flex-direction: column;
         margin-top: 0;
+        
     }
 
     .bottom-bar__input{
         height: 35px;
-        padding: 0 25px;
+        padding: 5px 25px;
         font-size: 1.4rem;
         width: 100%;
         margin-bottom: 10px;
@@ -301,6 +330,8 @@ body{
         width: 100px;
         border-radius: 1000px;
     }
+
+    
 
     .add-line{
         width: 20px;
