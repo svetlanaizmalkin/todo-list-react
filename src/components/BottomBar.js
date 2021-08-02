@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-const BottomBar = ({ setTodos, getId, setNewId }) => {
+const BottomBar = ({ setTodos, getId, setNewId}) => {
 
     const inputRef = useRef()
     

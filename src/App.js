@@ -9,6 +9,7 @@ import TodoList from "./components/TodoList"
 function App() {
 
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
+  const [contentStyle, setContentStyle] = useState({height: window.innerHeight*0.8 + "px"})
 
   useEffect(() => {
       localStorage.setItem("todos", JSON.stringify(todos))
@@ -36,8 +37,18 @@ function App() {
     setTodos(newTodos)
   }
 
+  const handleWindowResize = (e) => {
+    if(window.innerWidth <= 768){
+      setContentStyle({height: window.innerHeight*0.9+"px"})
+    } else {
+      setContentStyle({height: window.innerHeight*0.8 + "px"})
+    }
+  }
+
+  window.addEventListener("resize", handleWindowResize)
+
   return (
-    <div className="content">
+    <div className="content" style={contentStyle}>
       <Header setTodos={setTodos} deleteCheckedTodos={deleteCheckedTodos}/>
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <BottomBar setTodos={setTodos} getId={getId} setNewId={setNewId}/>

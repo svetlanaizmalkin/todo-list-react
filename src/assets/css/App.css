@@ -4,22 +4,26 @@
 
 html{
     font-size: 62.5%;
+    height: 100%;
 }
 
 body{
     margin: 0;
     font-family: sans-serif;
     background: url(../img/bg.jpg) no-repeat center / cover;
-    min-height: 100vh;
+    height: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.root{
+    height: 100%;
+}
+
 .content{
     width: 60vw;
-    height: 80vh;
     padding: 40px 60px;
     border-radius: 60px;
     backdrop-filter: blur(4px);
@@ -71,9 +75,10 @@ body{
 /* TODO LIST */
 
 .todo-list{
-    overflow-y: scroll;
+    overflow-y: auto;
     flex-grow: 1;
     margin-bottom: 10px;
+    padding-right: 10px;
 }
 
 /* TODO */
@@ -84,8 +89,9 @@ body{
     align-items: center;
     background-color: #fff;
     padding: 15px 20px;
-    margin: 0 15px 10px 0;
     border-radius: 20px;
+    width: 100%;
+    margin: 0 15px 10px 0;
 }
 
 .todo__name{
@@ -330,8 +336,6 @@ body{
         width: 100px;
         border-radius: 1000px;
     }
-
-    
 
     .add-line{
         width: 20px;

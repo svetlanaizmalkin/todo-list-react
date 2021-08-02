@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Todo from './Todo'
 
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos, toggleTodo}) => {
+
+    const todoListRef = useRef()
+    const [listStyle, setListStyle] = useState({paddingRight: 0})
+
+    useEffect(() => {
+        if(todoListRef.current.scrollHeight > todoListRef.current.clientHeight){
+            setListStyle({paddingRight: 10+"px"})
+        } else {
+            setListStyle({paddingRight: 0})
+        }
+    }, [todos])
 
     const showTodos = () => {
         if(todos) {
@@ -13,7 +24,7 @@ const TodoList = ({ todos, toggleTodo }) => {
     }
 
     return (
-        <div className="todo-list">
+        <div className="todo-list" style={listStyle} ref={todoListRef}>
             {showTodos()}
         </div>
     )
